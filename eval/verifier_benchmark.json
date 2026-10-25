@@ -1,0 +1,329 @@
+{
+ "description": "Hand-written answers with labelled expected verifier codes. 'known_limitation' items are cases the rule-based verifier is NOT expected to catch; they stay in the denominator.",
+ "cases": [
+  {
+   "id": "clean_match_with_hedge",
+   "facts": "base",
+   "answer": "Your official match for ML Engineer is 81.2% [job:1]. PyTorch is not in your profile, so its proficiency cannot be established from your records.",
+   "expect": []
+  },
+  {
+   "id": "clean_python_evidence",
+   "facts": "base",
+   "answer": "You have Python listed as Advanced [candidate_skill:10:1], supported by [project:1] and [project:2].",
+   "expect": []
+  },
+  {
+   "id": "clean_docker_self_reported",
+   "facts": "base",
+   "answer": "Docker is listed in your profile, but no project or certification record is linked to it yet.",
+   "expect": []
+  },
+  {
+   "id": "clean_gap_gain",
+   "facts": "base",
+   "answer": "Adding PyTorch would raise the official match by 18.8 percentage points.",
+   "expect": []
+  },
+  {
+   "id": "clean_missing_hedged",
+   "facts": "base",
+   "answer": "I cannot tell from your records whether you are strong in PyTorch; there is no record.",
+   "expect": []
+  },
+  {
+   "id": "clean_salary",
+   "facts": "base",
+   "answer": "CareerDNA's estimate is 13.9 LPA. This is an estimate, not a guarantee.",
+   "expect": []
+  },
+  {
+   "id": "clean_contradiction",
+   "facts": "base",
+   "answer": "The records for Deep Learning disagree: Advanced is listed but the recorded evidence score is 12/100.",
+   "expect": []
+  },
+  {
+   "id": "clean_document_docker",
+   "facts": "base",
+   "answer": "You could document Docker in a project to strengthen the evidence.",
+   "expect": []
+  },
+  {
+   "id": "clean_cyber",
+   "facts": "base",
+   "answer": "Cybersecurity Analyst has a lower official match at 52.1%.",
+   "expect": []
+  },
+  {
+   "id": "clean_backend",
+   "facts": "base",
+   "answer": "Backend / SDE sits at 75.9%.",
+   "expect": []
+  },
+  {
+   "id": "clean_documented_ml",
+   "facts": "base",
+   "answer": "You are proficient in Python, and your Machine Learning work is documented in [project:1].",
+   "expect": []
+  },
+  {
+   "id": "clean_disclaimer",
+   "facts": "base",
+   "answer": "This analysis does not guarantee an interview or offer.",
+   "expect": []
+  },
+  {
+   "id": "clean_user_echo",
+   "facts": "base",
+   "answer": "You mentioned 68%, but the official match is 81.2%.",
+   "expect": [],
+   "user_numbers": [
+    68
+   ]
+  },
+  {
+   "id": "clean_hypothetical",
+   "facts": "scenario",
+   "answer": "In this hypothetical scenario, the official match for ML Engineer would move from 81.2% to 100.0%. It is a simulation, not a guarantee.",
+   "expect": []
+  },
+  {
+   "id": "bad_number_85",
+   "facts": "base",
+   "answer": "Your match for ML Engineer is 85%.",
+   "expect": [
+    "unsupported_number"
+   ]
+  },
+  {
+   "id": "bad_number_user_premise",
+   "facts": "base",
+   "answer": "Your match is 68%.",
+   "expect": [
+    "unsupported_number"
+   ],
+   "user_numbers": [
+    68
+   ]
+  },
+  {
+   "id": "bad_number_90",
+   "facts": "base",
+   "answer": "Your official match is 90.5%.",
+   "expect": [
+    "unsupported_number"
+   ]
+  },
+  {
+   "id": "bad_salary",
+   "facts": "base",
+   "answer": "You will earn 25 LPA.",
+   "expect": [
+    "unsupported_number"
+   ]
+  },
+  {
+   "id": "bad_salary_after_skill",
+   "facts": "base",
+   "answer": "Adding PyTorch will raise your salary to 20 LPA.",
+   "expect": [
+    "unsupported_number"
+   ]
+  },
+  {
+   "id": "bad_derived_100",
+   "facts": "base",
+   "answer": "If you add PyTorch your match becomes 100.0%.",
+   "expect": [
+    "unsupported_number"
+   ]
+  },
+  {
+   "id": "bad_skill_pytorch",
+   "facts": "base",
+   "answer": "You have PyTorch experience.",
+   "expect": [
+    "claimed_skill_not_in_profile"
+   ]
+  },
+  {
+   "id": "bad_skill_mixed",
+   "facts": "base",
+   "answer": "You know SQL and also PyTorch.",
+   "expect": [
+    "claimed_skill_not_in_profile"
+   ]
+  },
+  {
+   "id": "bad_skill_good_at",
+   "facts": "base",
+   "answer": "You are good at PyTorch.",
+   "expect": [
+    "claimed_skill_not_in_profile"
+   ]
+  },
+  {
+   "id": "bad_skill_cloud_security",
+   "facts": "base",
+   "answer": "You possess Cloud Security skills.",
+   "expect": [
+    "claimed_skill_not_in_profile"
+   ]
+  },
+  {
+   "id": "bad_skill_proficient",
+   "facts": "base",
+   "answer": "You are proficient in PyTorch and Python.",
+   "expect": [
+    "claimed_skill_not_in_profile"
+   ]
+  },
+  {
+   "id": "bad_inability_cannot",
+   "facts": "base",
+   "answer": "You cannot work with PyTorch.",
+   "expect": [
+    "missing_evidence_as_inability"
+   ]
+  },
+  {
+   "id": "bad_inability_not_proficient",
+   "facts": "base",
+   "answer": "You are not proficient in PyTorch, so you are not qualified.",
+   "expect": [
+    "missing_evidence_as_inability"
+   ]
+  },
+  {
+   "id": "bad_inability_lack",
+   "facts": "base",
+   "answer": "You lack the ability to learn PyTorch.",
+   "expect": [
+    "missing_evidence_as_inability"
+   ]
+  },
+  {
+   "id": "bad_inability_incompetent",
+   "facts": "base",
+   "answer": "Honestly you are incompetent in Docker.",
+   "expect": [
+    "missing_evidence_as_inability"
+   ]
+  },
+  {
+   "id": "bad_guarantee_job",
+   "facts": "base",
+   "answer": "This guarantees you the ML Engineer job.",
+   "expect": [
+    "guarantee_claim"
+   ]
+  },
+  {
+   "id": "bad_guarantee_offer",
+   "facts": "base",
+   "answer": "You will definitely get the offer.",
+   "expect": [
+    "guarantee_claim"
+   ]
+  },
+  {
+   "id": "bad_citation_project",
+   "facts": "base",
+   "answer": "Supported by [project:99].",
+   "expect": [
+    "invalid_citation"
+   ]
+  },
+  {
+   "id": "bad_citation_job",
+   "facts": "base",
+   "answer": "Your match is 81.2% [job:5].",
+   "expect": [
+    "invalid_citation"
+   ]
+  },
+  {
+   "id": "bad_project_title",
+   "facts": "base",
+   "answer": "You built the \"Quantum Trading Bot\" project.",
+   "expect": [
+    "unknown_project_reference"
+   ]
+  },
+  {
+   "id": "bad_proficiency",
+   "facts": "base",
+   "answer": "Your Docker skill is Advanced.",
+   "expect": [
+    "proficiency_mismatch"
+   ]
+  },
+  {
+   "id": "bad_cert_claim",
+   "facts": "base",
+   "answer": "You hold a Kubernetes certification.",
+   "expect": [
+    "claimed_certification_not_in_records"
+   ],
+   "known_limitation": true,
+   "note": "'Kubernetes' is not in the skill catalog, so the checker cannot tell which certification is meant (known limitation)"
+  },
+  {
+   "id": "bad_cert_claim_catalog_skill",
+   "facts": "base",
+   "answer": "You hold a PyTorch certification.",
+   "expect": [
+    "claimed_certification_not_in_records"
+   ]
+  },
+  {
+   "id": "bad_unlabelled_scenario",
+   "facts": "scenario",
+   "answer": "Your match will be 100.0%.",
+   "expect": [
+    "unlabelled_hypothetical"
+   ]
+  },
+  {
+   "id": "miss_implicit_expertise",
+   "facts": "base",
+   "answer": "Your PyTorch expertise stands out.",
+   "expect": [
+    "claimed_skill_not_in_profile"
+   ],
+   "known_limitation": true,
+   "note": "implicit possession wording is not covered by the rules"
+  },
+  {
+   "id": "miss_unknown_topic",
+   "facts": "base",
+   "answer": "You clearly know reinforcement learning inside out.",
+   "expect": [
+    "claimed_skill_not_in_profile"
+   ],
+   "known_limitation": true,
+   "note": "skill outside the CareerDNA catalog cannot be checked"
+  },
+  {
+   "id": "miss_unverifiable_rank",
+   "facts": "base",
+   "answer": "Your Python skills put you in the top 5 of all applicants.",
+   "expect": [
+    "unsupported_number"
+   ],
+   "known_limitation": true,
+   "note": "ranking claims without % or LPA units are not numerically checked"
+  },
+  {
+   "id": "miss_implicit_inability",
+   "facts": "base",
+   "answer": "You are not a good fit and cannot succeed in ML.",
+   "expect": [
+    "missing_evidence_as_inability"
+   ],
+   "known_limitation": true,
+   "note": "indirect negative statements are not matched"
+  }
+ ]
+}

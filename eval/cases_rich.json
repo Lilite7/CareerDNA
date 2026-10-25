@@ -1,0 +1,149 @@
+{
+ "description": "Answer-level cases on the SYNTHETIC rich corpus; identical for every retrieval arm.",
+ "cases": [
+  {
+   "id": "rc01",
+   "category": "retrieval",
+   "question": "Have I built anything that forecasts harvest quantities?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Crop Yield"
+    ],
+    "refs_any": [
+     "project:100"
+    ]
+   }
+  },
+  {
+   "id": "rc02",
+   "category": "retrieval",
+   "question": "Which of my work involves spotting scam messages?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Phishing"
+    ],
+    "refs_any": [
+     "project:102"
+    ]
+   }
+  },
+  {
+   "id": "rc03",
+   "category": "retrieval",
+   "question": "Do I have hands-on experience watching network traffic for attacks?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Intrusion Alert"
+    ],
+    "refs_any": [
+     "project:103"
+    ]
+   }
+  },
+  {
+   "id": "rc04",
+   "category": "retrieval",
+   "question": "What have I built with neural networks for images?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Medical Image",
+     "Traffic Sign"
+    ],
+    "refs_any": [
+     "project:105",
+     "project:108"
+    ]
+   }
+  },
+  {
+   "id": "rc05",
+   "category": "retrieval",
+   "question": "Which of my projects helps control cloud spending?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Cloud Cost"
+    ],
+    "refs_any": [
+     "project:110"
+    ]
+   }
+  },
+  {
+   "id": "rc06",
+   "category": "retrieval",
+   "question": "Have I done any teaching?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Teaching Assistant"
+    ],
+    "refs_any": [
+     "experience:103"
+    ]
+   }
+  },
+  {
+   "id": "rc07",
+   "category": "retrieval",
+   "question": "Which credentials do I hold in cybersecurity?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Security+"
+    ],
+    "refs_any": [
+     "certification:101"
+    ]
+   }
+  },
+  {
+   "id": "rc08",
+   "category": "retrieval",
+   "question": "Where have I worked as an intern?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Intern"
+    ],
+    "refs_any": [
+     "experience:100",
+     "experience:101"
+    ]
+   }
+  },
+  {
+   "id": "rc09",
+   "category": "retrieval",
+   "question": "Have I worked on blockchain smart contracts?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "no ",
+     "not ",
+     "cannot",
+     "can't",
+     "none"
+    ]
+   }
+  },
+  {
+   "id": "rc10",
+   "category": "retrieval",
+   "question": "Which project ranks job applicants?",
+   "user": 4,
+   "expected": {
+    "mention_any": [
+     "Resume Screener"
+    ],
+    "refs_any": [
+     "project:109"
+    ]
+   }
+  }
+ ]
+}

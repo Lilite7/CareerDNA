@@ -1,0 +1,443 @@
+{
+ "description": "Retrieval gold set. SYNTHETIC corpora (ai/eval_fixture.py, ai/eval_fixture_rich.py); queries and labels written by the developer of the system, before any retrieval run. Split alternates dev/test within each category and was fixed before running. Thresholds/weights may be tuned on dev only; report on test.",
+ "queries": [
+  {
+   "id": "f01",
+   "corpus": "small",
+   "user": 1,
+   "category": "paraphrase",
+   "question": "Which of my work involves classifying security threats?",
+   "relevant": [
+    "project:1"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "f02",
+   "corpus": "small",
+   "user": 1,
+   "category": "paraphrase",
+   "question": "Have I built something to predict salaries?",
+   "relevant": [
+    "project:2"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "f03",
+   "corpus": "small",
+   "user": 1,
+   "category": "paraphrase",
+   "question": "What internship have I done?",
+   "relevant": [
+    "experience:1"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "f04",
+   "corpus": "small",
+   "user": 1,
+   "category": "paraphrase",
+   "question": "Do I hold a cloud certification?",
+   "relevant": [
+    "certification:1"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "f05",
+   "corpus": "small",
+   "user": 1,
+   "category": "paraphrase",
+   "question": "What does my web application work look like?",
+   "relevant": [
+    "project:2"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "f06",
+   "corpus": "small",
+   "user": 1,
+   "category": "no_answer",
+   "question": "Have I played professional football?",
+   "relevant": [],
+   "split": "dev"
+  },
+  {
+   "id": "f07",
+   "corpus": "small",
+   "user": 1,
+   "category": "no_answer",
+   "question": "Did I do any quantum computing research?",
+   "relevant": [],
+   "split": "test"
+  },
+  {
+   "id": "r01",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Have I worked on anything that predicts how much farmland will produce?",
+   "relevant": [
+    "project:100"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r02",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Which of my work involves spotting scam messages?",
+   "relevant": [
+    "project:102"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r03",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Do I have experience watching network traffic for attacks?",
+   "relevant": [
+    "project:103"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r04",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "What have I built with neural networks for images?",
+   "relevant": [
+    "project:105",
+    "project:108"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r05",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Anything where I automated shipping software?",
+   "relevant": [
+    "project:106"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r06",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Have I built tools that check how strong passwords are?",
+   "relevant": [
+    "project:111"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r07",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Which project keeps an eye on money spent on servers?",
+   "relevant": [
+    "project:110"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r08",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Where did I rank candidates for a vacancy?",
+   "relevant": [
+    "project:109"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r09",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "What did I build to help roommates share bills?",
+   "relevant": [
+    "project:104"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r10",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Which project reads X-rays?",
+   "relevant": [
+    "project:105"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r11",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Which project recognises things in camera footage?",
+   "relevant": [
+    "project:108"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r12",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Do I have any qualification about hosted infrastructure?",
+   "relevant": [
+    "certification:100"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r13",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Which credentials do I hold in cybersecurity?",
+   "relevant": [
+    "certification:101"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r14",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Have I done any teaching?",
+   "relevant": [
+    "experience:103"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r15",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Which of my projects explain their decisions?",
+   "relevant": [
+    "project:109"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r16",
+   "corpus": "rich",
+   "user": 4,
+   "category": "paraphrase",
+   "question": "Have I used machine learning to forecast numbers over time?",
+   "relevant": [
+    "project:100"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r17",
+   "corpus": "rich",
+   "user": 4,
+   "category": "lexical",
+   "question": "Which projects used PyTorch?",
+   "relevant": [
+    "project:105",
+    "project:108"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r18",
+   "corpus": "rich",
+   "user": 4,
+   "category": "lexical",
+   "question": "Which project used FastAPI and SQL together?",
+   "relevant": [
+    "project:104"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r19",
+   "corpus": "rich",
+   "user": 4,
+   "category": "lexical",
+   "question": "Tell me about the Crop Yield Forecaster",
+   "relevant": [
+    "project:100"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r20",
+   "corpus": "rich",
+   "user": 4,
+   "category": "lexical",
+   "question": "Show my work on database design",
+   "relevant": [
+    "project:107"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r21",
+   "corpus": "rich",
+   "user": 4,
+   "category": "lexical",
+   "question": "Any work with continuous integration?",
+   "relevant": [
+    "project:106"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r22",
+   "corpus": "rich",
+   "user": 4,
+   "category": "lexical",
+   "question": "Have I worked as a freelancer?",
+   "relevant": [
+    "experience:102"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r23",
+   "corpus": "rich",
+   "user": 4,
+   "category": "lexical",
+   "question": "Which experience involved data structures?",
+   "relevant": [
+    "experience:103"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r24",
+   "corpus": "rich",
+   "user": 4,
+   "category": "lexical",
+   "question": "Have I optimised queries?",
+   "relevant": [
+    "project:107"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r25",
+   "corpus": "rich",
+   "user": 4,
+   "category": "multi",
+   "question": "Where have I worked as an intern?",
+   "relevant": [
+    "experience:100",
+    "experience:101"
+   ],
+   "split": "dev"
+  },
+  {
+   "id": "r26",
+   "corpus": "rich",
+   "user": 4,
+   "category": "multi",
+   "question": "Where did I work on defending against hackers?",
+   "relevant": [
+    "project:102",
+    "project:103",
+    "project:111",
+    "experience:101",
+    "certification:101"
+   ],
+   "split": "test"
+  },
+  {
+   "id": "r27",
+   "corpus": "rich",
+   "user": 4,
+   "category": "no_answer",
+   "question": "What did I do with quantum computing?",
+   "relevant": [],
+   "split": "dev"
+  },
+  {
+   "id": "r28",
+   "corpus": "rich",
+   "user": 4,
+   "category": "no_answer",
+   "question": "Have I worked on blockchain smart contracts?",
+   "relevant": [],
+   "split": "test"
+  },
+  {
+   "id": "r29",
+   "corpus": "rich",
+   "user": 4,
+   "category": "no_answer",
+   "question": "Have I published poetry?",
+   "relevant": [],
+   "split": "dev"
+  },
+  {
+   "id": "r30",
+   "corpus": "rich",
+   "user": 4,
+   "category": "no_answer",
+   "question": "Did I build a video game?",
+   "relevant": [],
+   "split": "test"
+  },
+  {
+   "id": "r31",
+   "corpus": "rich",
+   "user": 4,
+   "category": "no_answer",
+   "question": "Do I have a pilot licence?",
+   "relevant": [],
+   "split": "dev"
+  },
+  {
+   "id": "r32",
+   "corpus": "rich",
+   "user": 4,
+   "category": "no_answer",
+   "question": "What is my experience in marine biology?",
+   "relevant": [],
+   "split": "test"
+  },
+  {
+   "id": "r33",
+   "corpus": "rich",
+   "user": 4,
+   "category": "no_answer",
+   "question": "Have I led a team of ten engineers?",
+   "relevant": [],
+   "split": "dev"
+  },
+  {
+   "id": "r34",
+   "corpus": "rich",
+   "user": 4,
+   "category": "no_answer",
+   "question": "Do I speak Japanese?",
+   "relevant": [],
+   "split": "test"
+  }
+ ]
+}

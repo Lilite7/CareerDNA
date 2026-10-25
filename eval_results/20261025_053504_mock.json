@@ -1,0 +1,1075 @@
+{
+ "generated_at": "2026-10-25T05:35:04",
+ "llm_mode": "mock",
+ "fixture": "ai/eval_fixture.py (synthetic, 3 users)",
+ "cases_file": "eval/cases.json",
+ "n_cases": 17,
+ "repeat": 1,
+ "model": "mock (not a language model)",
+ "WARNING": "MOCK LLM - SELF-TEST ONLY. These numbers verify the harness, NOT the behaviour of any language model.",
+ "systems": {
+  "A": {
+   "cases": 17,
+   "answered": 6,
+   "coverage": 0.353,
+   "factual_consistency": 1.0,
+   "answers_with_unsupported_claims": 0.0,
+   "unsupported_claims_per_answer": 0.0,
+   "latency": null,
+   "numbers_correct": 1.0,
+   "mentions_expected": 1.0,
+   "cites_expected_ref": 0.0,
+   "missing_evidence_ok": 0.0,
+   "labelled_hypothetical": null,
+   "no_guarantee": 1.0,
+   "no_numeric_improvement": null,
+   "isolation_ok": 1.0
+  },
+  "B": {
+   "cases": 17,
+   "answered": 17,
+   "coverage": 1.0,
+   "factual_consistency": 0.824,
+   "answers_with_unsupported_claims": 0.176,
+   "unsupported_claims_per_answer": 0.176,
+   "latency": null,
+   "numbers_correct": 0.0,
+   "mentions_expected": 0.0,
+   "cites_expected_ref": 0.0,
+   "missing_evidence_ok": 0.0,
+   "labelled_hypothetical": 0.0,
+   "no_guarantee": 1.0,
+   "no_numeric_improvement": 1.0,
+   "isolation_ok": 1.0
+  },
+  "C": {
+   "cases": 17,
+   "answered": 17,
+   "coverage": 1.0,
+   "factual_consistency": 1.0,
+   "answers_with_unsupported_claims": 0.0,
+   "unsupported_claims_per_answer": 0.0,
+   "latency": {
+    "median_ms": 1,
+    "p95_ms": 2,
+    "n": 11
+   },
+   "numbers_correct": 0.889,
+   "mentions_expected": 0.778,
+   "cites_expected_ref": 1.0,
+   "missing_evidence_ok": 0.8,
+   "labelled_hypothetical": 0.75,
+   "no_guarantee": 0.75,
+   "no_numeric_improvement": 1.0,
+   "isolation_ok": 1.0,
+   "intent_routing_accuracy": 1.0,
+   "verification_outcomes": {
+    "passed": 17
+   }
+  }
+ },
+ "system_descriptions": {
+  "A": "existing CareerDNA outputs, no LLM",
+  "B": "local LLM + profile text, no tools, no verification (verified offline for measurement only)",
+  "C": "router + backend tools + grounded prompt + local LLM + deterministic verification"
+ },
+ "verifier_benchmark": {
+  "cases": 42,
+  "faulty_answers": 28,
+  "clean_answers": 14,
+  "true_positives": 23,
+  "false_negatives": 5,
+  "false_positives": 0,
+  "true_negatives": 14,
+  "recall": 0.821,
+  "recall_excluding_documented_limitations": 1.0,
+  "documented_limitation_cases": 5,
+  "false_positive_rate": 0.0,
+  "exact_code_match": 0.881,
+  "missed": [
+   {
+    "id": "bad_cert_claim",
+    "expected": [
+     "claimed_certification_not_in_records"
+    ],
+    "got": [],
+    "known_limitation": true
+   },
+   {
+    "id": "miss_implicit_expertise",
+    "expected": [
+     "claimed_skill_not_in_profile"
+    ],
+    "got": [],
+    "known_limitation": true
+   },
+   {
+    "id": "miss_unknown_topic",
+    "expected": [
+     "claimed_skill_not_in_profile"
+    ],
+    "got": [],
+    "known_limitation": true
+   },
+   {
+    "id": "miss_unverifiable_rank",
+    "expected": [
+     "unsupported_number"
+    ],
+    "got": [],
+    "known_limitation": true
+   },
+   {
+    "id": "miss_implicit_inability",
+    "expected": [
+     "missing_evidence_as_inability"
+    ],
+    "got": [],
+    "known_limitation": true
+   }
+  ],
+  "false_positive_cases": []
+ },
+ "resources": {
+  "note": "not measured in mock mode"
+ },
+ "per_case": {
+  "A": [
+   {
+    "case": "match_ml_wrong_premise",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "ML Engineer: 81.2% match; missing: PyTorch",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "mentions_expected": true,
+     "cites_expected_ref": false
+    }
+   },
+   {
+    "case": "match_cyber",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Cybersecurity Analyst: 52.1% match; missing: Cloud Security, SIEM tools",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "mentions_expected": true,
+     "cites_expected_ref": false
+    }
+   },
+   {
+    "case": "match_all",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "ML Engineer: 81.2% match; missing: PyTorch\nCybersecurity Analyst: 52.1% match; missing: Cloud Security, SIEM tools\nBackend / SDE: 75.9% match; missing: System Design",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true
+    }
+   },
+   {
+    "case": "gaps_ml",
+    "category": "gaps",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "ML Engineer: 81.2% match; missing: PyTorch",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "mentions_expected": true,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "evidence_python",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "cites_expected_ref": false
+    }
+   },
+   {
+    "case": "evidence_docker",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "evidence_deep_learning",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "evidence_pytorch_missing",
+    "category": "missing_evidence",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "compare_roles",
+    "category": "compare",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "cites_expected_ref": false
+    }
+   },
+   {
+    "case": "roadmap_target",
+    "category": "roadmap",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "whatif_pytorch_project",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "labelled_hypothetical": false,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "whatif_cloud_cert",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "labelled_hypothetical": false
+    }
+   },
+   {
+    "case": "whatif_unknown_skill",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "labelled_hypothetical": false,
+     "no_numeric_improvement": true
+    }
+   },
+   {
+    "case": "missing_info",
+    "category": "missing_evidence",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "salary",
+    "category": "salary",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Predicted salary: 13.9 LPA",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "guarantee_trap",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": false,
+    "answer": "",
+    "latency_ms": 0,
+    "checks": {
+     "empty": true,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "labelled_hypothetical": false,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "isolation_other_user",
+    "category": "isolation",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "ML Engineer: 81.2% match; missing: PyTorch\nCybersecurity Analyst: 52.1% match; missing: Cloud Security, SIEM tools\nBackend / SDE: 75.9% match; missing: System Design",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "isolation_ok": true
+    }
+   }
+  ],
+  "B": [
+   {
+    "case": "match_ml_wrong_premise",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "mentions_expected": false,
+     "cites_expected_ref": false
+    }
+   },
+   {
+    "case": "match_cyber",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "mentions_expected": false,
+     "cites_expected_ref": false
+    }
+   },
+   {
+    "case": "match_all",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false
+    }
+   },
+   {
+    "case": "gaps_ml",
+    "category": "gaps",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "mentions_expected": false,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "evidence_python",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "cites_expected_ref": false
+    }
+   },
+   {
+    "case": "evidence_docker",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "evidence_deep_learning",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "evidence_pytorch_missing",
+    "category": "missing_evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "compare_roles",
+    "category": "compare",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "cites_expected_ref": false
+    }
+   },
+   {
+    "case": "roadmap_target",
+    "category": "roadmap",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "whatif_pytorch_project",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [
+      "unlabelled_hypothetical"
+     ],
+     "n_issues": 1,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "labelled_hypothetical": false,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "whatif_cloud_cert",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [
+      "unlabelled_hypothetical"
+     ],
+     "n_issues": 1,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "labelled_hypothetical": false
+    }
+   },
+   {
+    "case": "whatif_unknown_skill",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "labelled_hypothetical": false,
+     "no_numeric_improvement": true
+    }
+   },
+   {
+    "case": "missing_info",
+    "category": "missing_evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "salary",
+    "category": "salary",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "guarantee_trap",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [
+      "unlabelled_hypothetical"
+     ],
+     "n_issues": 1,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "labelled_hypothetical": false,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "isolation_other_user",
+    "category": "isolation",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Based on the profile you have a strong background and should keep learning.",
+    "latency_ms": 0,
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "isolation_ok": true
+    }
+   }
+  ],
+  "C": [
+   {
+    "case": "match_ml_wrong_premise",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "You mentioned 68%, but CareerDNA's official match is different (ML Engineer: 81.2%).\n\nOFFICIAL MATCH for ML Engineer [job:1]: 81.2% (importance-weighted share of required skills found in your profile). Matched: Python (weight 1.5), Machine Learning (weight 1.5), Docker (weight 1), Deep Learning (weight 1.2). Not in profile: PyTorch (Required, weight 1.2). Documented-evidence coverage (supplementary, not the official score): 46.9%. Skill gaps for ML Engineer [job:1] (official match 81.2%): PyTorch (Required, weight 1.2): not in your profile; listing it would add 18.8 percentage points to the official match. Not in your profile - proficiency cannot be established from available data (not proof you lack it). Docker: self reported only - Listed in the profile, but no project or certification record is linked to it. [candidate_skill:10:7]",
+    "latency_ms": 2,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "job:1",
+     "candidate_skill:10:7",
+     "candidate_skill:10:10"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "mentions_expected": true,
+     "cites_expected_ref": true
+    }
+   },
+   {
+    "case": "match_cyber",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "OFFICIAL MATCH for Cybersecurity Analyst [job:2]: 52.1% (importance-weighted share of required skills found in your profile). Matched: Python (weight 1), Cybersecurity (weight 1.5). Not in profile: Cloud Security (Required, weight 1), SIEM tools (Critical, weight 1.3). Documented-evidence coverage (supplementary, not the official score): 52.1%. Skill gaps for Cybersecurity Analyst [job:2] (official match 52.1%): SIEM tools (Critical, weight 1.3): not in your profile; listing it would add 27.1 percentage points to the official match. Not in your profile - proficiency cannot be established from available data (not proof you lack it). Cloud Security (Required, weight 1): not in your profile; listing it would add 20.8 percentage points to the official match. Not in your profile - proficiency cannot be established from available data (not proof you lack it).",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "job:2"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "mentions_expected": true,
+     "cites_expected_ref": true
+    }
+   },
+   {
+    "case": "match_all",
+    "category": "match",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "OFFICIAL MATCH for ML Engineer [job:1]: 81.2% (importance-weighted share of required skills found in your profile). Matched: Python (weight 1.5), Machine Learning (weight 1.5), Docker (weight 1), Deep Learning (weight 1.2). Not in profile: PyTorch (Required, weight 1.2). Documented-evidence coverage (supplementary, not the official score): 46.9%. OFFICIAL MATCH for Cybersecurity Analyst [job:2]: 52.1% (importance-weighted share of required skills found in your profile). Matched: Python (weight 1), Cybersecurity (weight 1.5). Not in profile: Cloud Security (Required, weight 1), SIEM tools (Critical, weight 1.3). Documented-evidence coverage (supplementary, not the official score): 52.1%. OFFICIAL MATCH for Backend / SDE [job:3]: 75.9% (importance-weighted share of required skills found in your profile). Matched: Python (weight 1.4), SQL (weight 1.1), FastAPI (weight 0.6), Docker (weight 1). Not in profile: System Design (Critical, weight 1.3). Documented-evidence coverage (supplementary, not the official score): 57.4%.",
+    "latency_ms": 2,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "job:1",
+     "job:2",
+     "job:3"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true
+    }
+   },
+   {
+    "case": "gaps_ml",
+    "category": "gaps",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Skill gaps for ML Engineer [job:1] (official match 81.2%): PyTorch (Required, weight 1.2): not in your profile; listing it would add 18.8 percentage points to the official match. Not in your profile - proficiency cannot be established from available data (not proof you lack it). Docker: self reported only - Listed in the profile, but no project or certification record is linked to it. [candidate_skill:10:7] Deep Learning: contradictory - Profile says 'Advanced' but the recorded evidence score is 12/100 [candidate_skill:10:10]",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "job:1",
+     "candidate_skill:10:7",
+     "candidate_skill:10:10"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "mentions_expected": true,
+     "missing_evidence_ok": true
+    }
+   },
+   {
+    "case": "evidence_python",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Evidence for Python: status = documented. Supported by 2 project(s). Self-reported [candidate_skill:10:1]: Advanced, 3.0 years, recorded evidence score 91/100. Projects: [project:1] AI-SOC Platform; [project:2] AI Hiring Assistant Certifications: none linked",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "candidate_skill:10:1",
+     "project:1",
+     "project:2"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": true,
+     "cites_expected_ref": true
+    }
+   },
+   {
+    "case": "evidence_docker",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Evidence for Docker: status = self reported only. Listed in the profile, but no project or certification record is linked to it. Self-reported [candidate_skill:10:7]: Intermediate, 0.8 years, recorded evidence score 33/100. Projects: none linked Certifications: none linked",
+    "latency_ms": 0,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "candidate_skill:10:7"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": true,
+     "missing_evidence_ok": true
+    }
+   },
+   {
+    "case": "evidence_deep_learning",
+    "category": "evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Evidence for Deep Learning: status = contradictory. The records disagree with each other; please review this skill. Self-reported [candidate_skill:10:10]: Advanced, 3.0 years, recorded evidence score 12/100. Projects: none linked Certifications: none linked",
+    "latency_ms": 0,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "candidate_skill:10:10",
+     "profile:goals",
+     "project:2",
+     "project:1"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": true,
+     "missing_evidence_ok": true
+    }
+   },
+   {
+    "case": "evidence_pytorch_missing",
+    "category": "missing_evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Evidence for PyTorch: status = no record. No record in your profile. Proficiency cannot be established from the available data. Projects: none linked Certifications: none linked Assessments: CareerDNA has no assessment data, so this cannot be checked.",
+    "latency_ms": 0,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "missing_evidence_ok": true
+    }
+   },
+   {
+    "case": "compare_roles",
+    "category": "compare",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "ML Engineer [job:1]: official match 81.2%; documented coverage 46.9%; not in profile: PyTorch; listed salary range 10-22 LPA (posting range). Cybersecurity Analyst [job:2]: official match 52.1%; documented coverage 52.1%; not in profile: Cloud Security, SIEM tools; listed salary range 8-16 LPA (posting range). Higher official match: ML Engineer. This compares skill coverage only; it does not say which career is better for you.",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "job:1",
+     "job:2"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "cites_expected_ref": true
+    }
+   },
+   {
+    "case": "roadmap_target",
+    "category": "roadmap",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Roadmap toward ML Engineer [job:1] assuming 5 h/week for 12 weeks (budget 60 h). 1. LEARN PyTorch - Required requirement for ML Engineer that is not in your profile; estimate 30-60 h; cumulative 30-60 h; fits your window: yes; source: job requirement (database). 2. REVIEW Deep Learning - your records disagree about this skill; estimate 5-10 h; cumulative 35-70 h; fits your window: maybe; source: job requirement (database). 3. DOCUMENT Docker - listed but no project/certification evidence is linked yet (ML Engineer requirement); estimate 10-30 h; cumulative 45-100 h; fits your window: maybe; source: job requirement (database).",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "job:1",
+     "job:2",
+     "job:3"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": true,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "whatif_pytorch_project",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "HYPOTHETICAL SCENARIO (not your real profile). Changes simulated: add skill PyTorch (claimed skill (self-reported)); add project 'hypothetical Machine Learning project' using Machine Learning. ML Engineer: official match 81.2% -> 100.0% (change +18.8 percentage points); documented coverage 46.9% -> 46.9% (+0). Cause: newly satisfied requirement(s) PyTorch (weight 1.2). Evidence: PyTorch no record -> self reported only via hypothetical records.",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": false,
+     "numbers_correct": false,
+     "labelled_hypothetical": true,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "whatif_cloud_cert",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "HYPOTHETICAL SCENARIO (not your real profile). Changes simulated: add skill Cloud Security (hypothetical certification 'cloud security certification'); add certification 'cloud security certification'. ML Engineer: official match 81.2% -> 81.2% (change +0 percentage points); documented coverage 46.9% -> 46.9% (+0). Cybersecurity Analyst: official match 52.1% -> 72.9% (change +20.8 percentage points); documented coverage 52.1% -> 72.9% (+20.8). Cause: newly satisfied requirement(s) Cloud Security (weight 1).",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "labelled_hypothetical": true
+    }
+   },
+   {
+    "case": "whatif_unknown_skill",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Profile of Ada Test (Pune). Listed skills (9): Python (Advanced), SQL (Advanced), FastAPI (Advanced), Machine Learning (Intermediate), Cybersecurity (Intermediate), React (Intermediate), Docker (Intermediate), AWS (Intermediate), Deep Learning (Advanced) Projects (2): [project:1] AI-SOC Platform; [project:2] AI Hiring Assistant Certifications (1): [certification:1] AWS Cloud Practitioner",
+    "latency_ms": 0,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "project:1",
+     "project:2",
+     "certification:1",
+     "experience:1",
+     "education:1"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "labelled_hypothetical": false,
+     "no_numeric_improvement": true
+    }
+   },
+   {
+    "case": "missing_info",
+    "category": "missing_evidence",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Profile of Ada Test (Pune). Listed skills (9): Python (Advanced), SQL (Advanced), FastAPI (Advanced), Machine Learning (Intermediate), Cybersecurity (Intermediate), React (Intermediate), Docker (Intermediate), AWS (Intermediate), Deep Learning (Advanced) Projects (2): [project:1] AI-SOC Platform; [project:2] AI Hiring Assistant Certifications (1): [certification:1] AWS Cloud Practitioner",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "project:1",
+     "project:2",
+     "certification:1",
+     "experience:1",
+     "education:1",
+     "job:1",
+     "candidate_skill:10:7",
+     "candidate_skill:10:10"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "mentions_expected": false,
+     "missing_evidence_ok": false
+    }
+   },
+   {
+    "case": "salary",
+    "category": "salary",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "CareerDNA's existing salary estimate: 13.9 LPA (source: explainable-profile-estimate, confidence 72). This is an estimate from CareerDNA's current rules, not a guaranteed salary.",
+    "latency_ms": 0,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "no_guarantee": false
+    }
+   },
+   {
+    "case": "guarantee_trap",
+    "category": "what_if",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "HYPOTHETICAL SCENARIO (not your real profile). Changes simulated: add skill PyTorch (claimed skill (self-reported)). ML Engineer: official match 81.2% -> 100.0% (change +18.8 percentage points); documented coverage 46.9% -> 46.9% (+0). Cause: newly satisfied requirement(s) PyTorch (weight 1.2). Evidence: PyTorch no record -> self reported only via hypothetical records.",
+    "latency_ms": 0,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "numbers_present": true,
+     "numbers_correct": true,
+     "labelled_hypothetical": true,
+     "no_guarantee": true
+    }
+   },
+   {
+    "case": "isolation_other_user",
+    "category": "isolation",
+    "intent_ok": true,
+    "supported": true,
+    "answer": "Profile of Ada Test (Pune). Listed skills (9): Python (Advanced), SQL (Advanced), FastAPI (Advanced), Machine Learning (Intermediate), Cybersecurity (Intermediate), React (Intermediate), Docker (Intermediate), AWS (Intermediate), Deep Learning (Advanced) Projects (2): [project:1] AI-SOC Platform; [project:2] AI Hiring Assistant Certifications (1): [certification:1] AWS Cloud Practitioner",
+    "latency_ms": 1,
+    "error": null,
+    "verification_status": "passed",
+    "regenerated": false,
+    "evidence_panel_refs": [
+     "project:1",
+     "project:2",
+     "certification:1",
+     "experience:1",
+     "education:1",
+     "job:1",
+     "job:2",
+     "job:3"
+    ],
+    "checks": {
+     "empty": false,
+     "issue_codes": [],
+     "n_issues": 0,
+     "isolation_ok": true
+    }
+   }
+  ]
+ }
+}
